@@ -11,12 +11,14 @@ table, th, td {
   <form method="get" target="_blank" action="/add/{{product._id}}">
     
     Widget for user: {{userName}}<br>
-    and for product: {{product.name}}<br>
+    Product: {{product.name}}<br>
     {{#if present.quantity}}
     User has currently: {{present.quantity}}<br>
+    {{/if}}
+    {{#if user}}
     <input type="submit" value="Add to my products" onclick="setTimeout('location.reload()', 1000)">
     {{/if}}
-    {{#unless present.quantity}}
+    {{#unless user}}
     <input type="submit" value="Log in and add this to my products">
     {{/unless}}
     

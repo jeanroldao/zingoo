@@ -46,7 +46,7 @@ app.get('/', wagner.invoke(function(Product, User) {
           if (err) {
             res.send(err);
           } else {
-            var userName = 'No logged user';
+            var userName = 'No logged in user';
             var presents = null;
             var productsNamesById = {};
             products.forEach(function(p) {
@@ -197,7 +197,7 @@ app.get('/widget/:product', wagner.invoke(function(Product, User) {
           if (err) {
             res.send(err);
           } else {
-            var userName = 'No logged user';
+            var userName = 'No logged in user';
             var present = { quantity: 0 };
             if (user) {
               present = user.presents.filter(function(p) {
@@ -225,4 +225,4 @@ app.use(express.static('static'));
 app.disable('etag');
 
 app.listen(process.env.PORT || 3000);
-console.log('Server listening on port 3000');
+console.log('Server listening on port', process.env.PORT || 3000);

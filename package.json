@@ -1,0 +1,24 @@
+{
+  "name": "zingoo",
+  "version": "1.0.0",
+  "description": "zingoo widget test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jean Roldao",
+  "license": "ISC",
+  "dependencies": {
+    "atob": "^2.0.0",
+    "body-parser": "1.12.4",
+    "crypto": "0.0.3",
+    "express": "4.12.3",
+    "express-session": "^1.13.0",
+    "handlebars": "^4.0.5",
+    "hbs": "^4.0.0",
+    "http-status": "0.1.8",
+    "mongodb": "2.0.35",
+    "mongoose": "4.0.3",
+    "wagner-core": "^0.2.0"
+  }
+}

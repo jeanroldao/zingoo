@@ -1,0 +1,21 @@
+<style>
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<div class="main">
+  <form method="post">
+    <h1>Login</h1>
+    {{#if selectedProduct}}
+      <p>Please login to add this product: <b>{{selectedProductName}}</b></p>
+      <input type="hidden" name="callbackUrl" value="/add/{{selectedProduct}}">
+    {{/if}}
+    User:
+    <input name="user" value="{{user}}">
+    <input type="submit">
+  </form>
+</div>

@@ -1,0 +1,66 @@
+<style>
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<div class="main">
+  <div id="home" class="tab">
+    <h1>List of products ({{products.length}})</h1>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Action</th>
+        <th>Widget code</th>
+      </tr>
+      {{#each products}}
+      <tr>
+        <td>{{_id}}</td>
+        <td>{{name}}</td>
+        <td>
+          {{#if ../user}}
+          <a href="/add/{{_id}}">Add to your products</a>
+          {{/if}}
+        </td>
+        <td>
+          <input id="product_{{_id}}" onclick="select()"/>
+          <script>
+            document.getElementById('product_{{_id}}').value = '<iframe title="{{name}}" src="'+location.href+'widget/{{_id}}" style="border: none; overflow: hidden; height: 173px; width: 300px;"></iframe>';
+          </script>
+        </td>
+      </tr>
+      {{/each}}
+    </table>
+    <form action="/product" method="post"> 
+    New product <input name="product"> <input type="submit">
+    </form>
+    <h1>User: <a href="/login">{{userName}}</a></h1>
+    {{#unless presents}}
+    <h2>No presents<h2>
+    {{/unless}}
+    {{#if presents}}
+    <h2>Your products ({{presents.length}})</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Action</th>
+      </tr>
+      {{#each presents}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{quantity}}</td>
+        <td>
+          <a href="/add/{{product}}">Increase</a>
+          <a href="/remove/{{_id}}">Remove</a>
+        </td>
+      </tr>
+      {{/each}}
+    </table>
+    {{/if}}
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<style>
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<div class="main">
+  <form method="get" target="_blank" action="/add/{{product._id}}">
+    
+    Widget for user: {{userName}}<br>
+    and for product: {{product.name}}<br>
+    {{#if present.quantity}}
+    User has currently: {{present.quantity}}<br>
+    <input type="submit" value="Add to my products" onclick="setTimeout('location.reload()', 1000)">
+    {{/if}}
+    {{#unless present.quantity}}
+    <input type="submit" value="Log in and add this to my products">
+    {{/unless}}
+    
+  </form>
+</div>
